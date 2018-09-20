@@ -10,67 +10,8 @@ import Good from './../elements/good.component'
 export default {
     name: 'Catalog',
     components : { Good },
-    data : function(){
-        return {
-            data : [
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик Красный с синими пуговицами',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик Красный с синими пуговицами',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                }
-            ]
-        }
+    props : {
+        data : Array
     }
 }
 </script>
@@ -78,6 +19,13 @@ export default {
 <style scoped>
     .catalog {
         margin-top: 1%;
+        display: table;
+        width: 100%;
+    }
+
+    .catalog:after {
+        content: '';
+        clear: both;
     }
 </style>
 

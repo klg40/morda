@@ -2,7 +2,12 @@
   <section>
       <Slider></Slider>
       <MainMenu></MainMenu>
-      <Catalog></Catalog>
+      <Catalog :data="data"></Catalog>
+      <div class="container">
+          <Block :category="block1"></Block>
+          <Block :category="block2"></Block>
+      </div>
+      <Catalog :data="data2"></Catalog>
   </section>
 </template>
 
@@ -10,12 +15,122 @@
 import HeaderMain from './../components/main/HeaderMain.component'
 import Slider from './../components/main/Slider.component'
 import Catalog from './../components/main/Catalog.component'
+import Block from './../components/elements/block.component'
 
 export default {
   components: {
     HeaderMain,
     Slider,
-    Catalog
+    Catalog,
+    Block
+  },
+  data : function(){
+    return {
+      block1 : {
+                title : 'Товары для дома',
+                color : '#fff343',
+                image : '/vaza.png',
+                links : [
+                  { title : 'Вазы', href : '' },
+                  { title : 'Люстры', href : '' },
+                  { title : 'Картины', href : '' },
+                  { title : 'Статуэтки', href : '' },
+                  { title : 'Книги', href : '' },
+                  { title : 'Декоративные изделия', href : '' },
+                  { title : 'Ковры', href : '' },
+                  { title : 'Картины', href : '' },
+                  { title : 'Картины', href : '' },
+                  { title : 'Картины', href : '' },
+                ],
+                fontColor : 'black'
+      },
+      block2 : {
+                title : 'Все для школьника',
+                color : '#ff4359',
+                image : '/child.png',
+                links : [
+                  { title : 'Вазы', href : '' },
+                  { title : 'Люстры', href : '' },
+                  { title : 'Картины', href : '' },
+                  { title : 'Статуэтки', href : '' },
+                  { title : 'Книги', href : '' },
+                  { title : 'Декоративные изделия', href : '' },
+                  { title : 'Ковры', href : '' },
+                  { title : 'Картины', href : '' },
+                  { title : 'Картины', href : '' },
+                  { title : 'Картины', href : '' },
+                ],
+                fontColor : 'white'
+      },
+      data : [
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                }
+      ],
+      data2 : [
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                }
+            ],
+    }
   }
 }
 </script>
