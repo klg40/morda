@@ -1,6 +1,6 @@
 <template>
     <div class="catalog container">
-        <Good v-for="item in data" :key="item.title" :info="item"></Good>
+        <Good v-for="(item, index ) in data" :key="index" :info="item"></Good>
     </div>
 </template>
 
@@ -10,8 +10,59 @@ import Good from './../elements/good.component'
 export default {
     name: 'Catalog',
     components : { Good },
-    props : {
-        data : Array
+    data : function(){
+        return {
+            data : [
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик Красный с синими пуговицами',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик',
+                    price : 2999
+                },
+                {
+                    title : 'Бамбинизончик Красный с синими пуговицами',
+                    price : 2999
+                }
+            ]
+        }
     }
 }
 </script>

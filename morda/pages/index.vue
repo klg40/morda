@@ -1,7 +1,6 @@
 <template>
   <section>
       <Slider></Slider>
-      <MainMenu></MainMenu>
       <Catalog :data="data"></Catalog>
       <div class="container">
           <Block :category="block1"></Block>
@@ -24,6 +23,7 @@ export default {
     Catalog,
     Block
   },
+  methods:{},
   data : function(){
     return {
       block1 : {
@@ -63,14 +63,6 @@ export default {
                 fontColor : 'white'
       },
       data : [
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
-                {
-                    title : 'Бамбинизончик',
-                    price : 2999
-                },
                 {
                     title : 'Бамбинизончик',
                     price : 2999
