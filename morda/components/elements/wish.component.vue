@@ -1,27 +1,39 @@
 <template>
-    <div class="cart" :class="{ main : main }">
-        <img src="./../../assets/images/icons/cart.svg"/>
+    <div class="wish" :class="{ main : main }">
+        <img src="./../../assets/images/icons/wish.svg"/>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Cart',
+    name: 'WishList',
     props : {
         main : {
             type : Boolean,
             default : false,
             required : false
         }
+    },
+    data : function() {
+        return {
+            click : false
+        }
+    },
+    methods : {
+        Click : function() {
+            this.click = true;
+            setTimeout(() => {this.click = false}, 500)
+        }
     }
 }
 </script>
 
 <style scoped>
-    .cart {
+    .wish {
         float: right;
         width: 80px;
         height: 50px;
+        position: relative;
     }
 
     img {
@@ -30,7 +42,7 @@ export default {
         margin-top: 10px
     }
 
-    .cart.main {
+    .wish.main {
         float: right;
         width: 80px;
         height: 80px;

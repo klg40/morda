@@ -5,30 +5,42 @@ import FormData from 'form-data'
 const store = () => {
     return new Vuex.Store({
         state : {
-            post : []
+            goods : [],
+            categories : {}
         },
         getters : {
-            post( state ) {
-                return state.post
+            goods( state ) {
+                return state.goods
+            },
+            categories( state ) {
+                return state.categories
             }
         },
         mutations : {
-            getPost ( state, posts ) {
-                state.post = posts
+            setGoods ( state, goods ) {
+                state.goods = goods
+            },
+            setCategories( state, categories ) {
+                state.categories = categories
             }
         },
         actions : {
-            async getPost(context, id) {
-                console.log('ID ', id);
-                var body = new FormData();
-                body.append( 'categoryId' , id );
-                console.dir(body); 
-                const req = await axios.post("http://api.posrednik-rf.com/api/v1/site.listProductsForCategory", body, {
+            async setGoods(context, url) {
+                let body = new FormData();
+                body.append("url",url.toString());
+                console.log(body);
+                const req = await axios.post("http://api.posrednik-rf.com/api/v1/site.listProductsForUrl", body, {
                     headers: {
-                        'Content-Type': 'multipart/form-data'
-                      }
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Accept' : 'application/json'
+                    }
                 });
-                context.commit('getPost', req.data)
+                console.log(req.data);
+                context.commit('setGoods', req.data)
+            },
+            async setCategories(context) {
+                const req = await axios.post("http://api.posrednik-rf.com/api/v1/category.list");
+                context.commit('setCategories', req.data)
             }
         }
     })

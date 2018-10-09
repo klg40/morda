@@ -1,5 +1,5 @@
 <template>
-    <div class="slider">
+    <div class="slider" id="slider">
          <HeaderMain></HeaderMain>
         <div class="search_container" :class="{ full : full }">
             <SearchMain @focus="full = true" @blur="full = false"></SearchMain>

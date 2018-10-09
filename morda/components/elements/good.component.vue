@@ -7,10 +7,10 @@
         <div class="information">
             <div class="title">{{info.title}}</div>
             <div class="description">
-                Яркие эргономичные комбинезоны Bambinizon для стильных малышей и активных родителей!
+                {{info.description}}
             </div>
             <div class="price">
-                    2 899 <span>₽</span>
+                    {{info.price}} <span>₽</span>
             </div>
             <div class="button_group">
                 <div class="button">

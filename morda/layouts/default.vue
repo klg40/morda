@@ -47,5 +47,12 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+  }
 </style>
 
