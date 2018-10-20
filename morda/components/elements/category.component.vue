@@ -1,6 +1,6 @@
 <template>
     <div class="category" href="">
-        <nuxt-link :to="'/goods/' + info.url">{{info.name}}</nuxt-link>
+        <nuxt-link :to="'/goods/' + info.url" :query="{ title : info.name }">{{info.name}}</nuxt-link>
         <ul v-if="info.sub">
             <li v-for="el in info.sub" :key="el.id">
                 <nuxt-link :to="'/goods/' + el.url">{{el.name}}</nuxt-link>
@@ -17,6 +17,7 @@ export default {
             category : Object
         }
     },
+
 }
 </script>
 

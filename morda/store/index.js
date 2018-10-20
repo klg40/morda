@@ -14,6 +14,9 @@ const store = () => {
             },
             categories( state ) {
                 return state.categories
+            },
+            store( state ) {
+                return state
             }
         },
         mutations : {
@@ -25,17 +28,13 @@ const store = () => {
             }
         },
         actions : {
-            async setGoods(context, url) {
-                let body = new FormData();
-                body.append("url",url.toString());
-                console.log(body);
+            async setGoods(context, body) {
                 const req = await axios.post("http://api.posrednik-rf.com/api/v1/site.listProductsForUrl", body, {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'Accept' : 'application/json'
                     }
                 });
-                console.log(req.data);
                 context.commit('setGoods', req.data)
             },
             async setCategories(context) {

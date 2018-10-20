@@ -1,7 +1,10 @@
 <template>
     <div>
+        {{pr}}
         {{goods}}
-        <!-- <Good v-for="good in goods" :key="good.id" v-bind:info="good"></Good> -->
+        <div v-if="goods">
+        <Good v-for="good in goods.product" :key="good.id" v-bind:info="good"></Good>
+        </div>
     </div>
 </template>
 
@@ -13,16 +16,18 @@ import FormData from 'form-data'
 export default {
     components : { Good },
     async asyncData({ store, params }) {
-        await store.dispatch('setGoods', params.id);
-    },
-    computed : {
-        goods : function() {
-            return this.$store.getters.goods
-        },
+        var body = new FormData();
+        body.append('url', params.id.toString());
+        console.log(body);
+        await store.dispatch('setGoods', body);
+        return {
+            goods : store.getters.goods,
+            pr : params
+        }
     },
     head() {
         return {
-            title: this.goods
+            title: 'Название категории'
         }
     }
 }
