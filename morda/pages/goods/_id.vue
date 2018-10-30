@@ -10,12 +10,11 @@
 <script>
 import Good from './../../components/elements/good.component'
 import axios from 'axios'
-import FormData from 'form-data'
 
 export default {
     components : { Good },
-    asyncData({ store, params }) {
-        store.dispatch('setGoods', params.id);
+    async asyncData({ store, params }) {
+        await store.dispatch('setGoods', params.id);
     },
     computed : {
         goods : function() {

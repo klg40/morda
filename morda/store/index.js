@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import axios from 'axios'
-var FormData = require('form-data')
+const FormData = require('form-data')
 
 const store = () => {
     return new Vuex.Store({
