@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import axios from 'axios'
-import FormData from 'form-data'
+var FormData = require('form-data')
 
 const store = () => {
     return new Vuex.Store({
@@ -28,14 +28,13 @@ const store = () => {
             }
         },
         actions : {
-            async setGoods(context, body) {
-                const req = await axios.post("http://api.posrednik-rf.com/api/v1/site.listProductsForUrl", body, {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        'Accept' : 'application/json'
-                    }
-                });
-                context.commit('setGoods', req.data)
+            async setGoods(context, id) {
+                var body = new FormData();
+                body.append('url', id);
+                const req = await axios.post("http://api.posrednik-rf.com/api/v1/site.listProductsForUrl", body);
+                console.log(req.data);
+                context.commit('setGoods', req);
+                return req.data
             },
             async setCategories(context) {
                 const req = await axios.post("http://api.posrednik-rf.com/api/v1/category.list");
