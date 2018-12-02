@@ -1,12 +1,10 @@
 <template>
   <section>
       <Slider></Slider>
-      <Catalog :data="data"></Catalog>
       <div class="container">
           <Block :category="block1"></Block>
           <Block :category="block2"></Block>
       </div>
-      <Catalog :data="data2"></Catalog>
   </section>
 </template>
 

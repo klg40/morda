@@ -1,7 +1,7 @@
 <template>
     <div class="category">
         <HeaderMain :white="true"></HeaderMain>
-        <headerCategory :title="'Категории товаров'"></headerCategory>
+        <!-- <headerCategory :title="'Категории товаров'"></headerCategory> -->
         <div class="category_list container">
             <Cat v-for="el in categories" :key="el.id" :info="el"></Cat>
         </div>
@@ -31,7 +31,9 @@ export default {
 </script>
 
 <style scoped>
-
+    .category_list {
+        margin-top: 60px;
+    }
 </style>
 
 

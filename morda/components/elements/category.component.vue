@@ -1,9 +1,12 @@
 <template>
     <div class="category" href="">
+        <div class="image">
+            <img :src="'http://api.posrednik-rf.com/upload/category/' + info.img"/>
+        </div>
         <nuxt-link :to="'/goods/' + info.url" :query="{ title : info.name }">{{info.name}}</nuxt-link>
         <ul v-if="info.sub">
             <li v-for="el in info.sub" :key="el.id">
-                <nuxt-link :to="'/goods/' + el.url">{{el.name}}</nuxt-link>
+                <nuxt-link :to="'/goods/' + el.url" :query="{ data : el }">{{el.name}}</nuxt-link>
             </li>
         </ul>
     </div>
@@ -16,7 +19,7 @@ export default {
         info : {
             category : Object
         }
-    },
+    }
 
 }
 </script>
@@ -49,6 +52,15 @@ export default {
     li {
         list-style-type: none;
         font-size: 16px;
+    }
+
+    .image {
+        width: 100%
+    }
+
+    .image img {
+        width: 86%;
+        margin-left: 7%;
     }
 </style>
 

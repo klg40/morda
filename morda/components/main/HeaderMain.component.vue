@@ -9,6 +9,7 @@
                     </span>
                     Каталог
                 </nuxt-link>
+                <catalogMenu/>
             </div>
             <div class="button button_service">
                 <nuxt-link to="/services">
@@ -42,10 +43,11 @@ import Regions from './../elements/regions.component'
 import Cart from './../elements/cart.component'
 import MainMenu from './../elements/main-menu.component'
 import WishList from './../elements/wish.component'
+import catalogMenu from './../elements/catalogMenu.component'
 
 export default {
     name: 'HeaderMain',
-    components: { Regions, Cart, MainMenu, WishList },
+    components: { Regions, Cart, MainMenu, WishList, catalogMenu },
     props : {
         white : {
             type: Boolean,
@@ -69,12 +71,11 @@ export default {
 
 <style scoped>
     .top_panel {
-        overflow: hidden;
         position: fixed;
         width: 100%;
         z-index: 999;
         color: white;
-        font-weight: 600;
+        font-weight: 400;
         height: 80px;
         line-height: 80px;
     }
@@ -83,6 +84,7 @@ export default {
         color: white;
         background-color: blueviolet;
         transition: .32s;
+        top: 0;
         height: 50px;
         line-height: 50px;
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2)
@@ -146,6 +148,14 @@ export default {
     a:visited {
         color: inherit;
         text-decoration: none;
+    }
+
+    .button_catalog nav {
+        display: none;
+    }
+
+    .button_catalog:hover a + nav {
+        display: block;
     }
 </style>
 

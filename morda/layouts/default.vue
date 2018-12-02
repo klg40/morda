@@ -53,6 +53,24 @@ html {
     max-width: 1300px;
     margin: 0 auto;
     position: relative;
+}
+
+@media screen and (max-width:1300px) {
+  .container {
+    max-width: 1200px;
   }
+}
+
+@media screen and (max-width:1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media screen and (max-width:1100px) {
+  .container {
+    max-width: 1000px;
+  }
+}
 </style>
 
