@@ -1,12 +1,20 @@
 <template>
   <nav>
-    <div class="nav_item" v-for="item in categories" :key="item.id" :class="{ 'parent_category' : item.sub }">
+    <div class="nav_item" 
+         v-for="item in categories" 
+         :key="item.id" 
+         :class="{ 'parent_category' : item.sub }"
+         @mouseover="ShowSub(item.sub)"
+         @blur="BlurSub(item.sub)">
       <nuxt-link :to="'/goods/' + item.url" :query="{ title : item.name }">{{item.name}}</nuxt-link>
-      <div class="sub_menu" v-if="item.sub">
-        <div class="sub_menu_item" v-for="subitem in item.sub" :key="subitem.id">
-          <nuxt-link :to="'/goods/' + subitem.url" :query="{ title : subitem.name }">{{subitem.name}}</nuxt-link>
+    </div>
+    <div class="sub_menu" v-show="submenu">
+      <nuxt-link :to="'/goods/' + subitem.url" :query="{ title : subitem.name }" v-for="subitem in submenu" :key="subitem.id">
+        <div class="sub_menu_item">
+          <img src="../../assets/images/icons/tshirt.svg" alt=""/>
+          {{subitem.name}}
         </div>
-      </div>
+      </nuxt-link>
     </div>
   </nav>
 </template>
@@ -17,6 +25,20 @@
     computed : {
       categories : function() {
         return this.$store.getters.categories
+      }
+    },
+    data : function() {
+      return {
+        submenu : false
+      }
+    },
+    methods : {
+      ShowSub : function(submenu) {
+        this.submenu = submenu;
+        console.dir(this.submenu);
+      },
+      BlurSub : function() {
+        this.submenu = false
       }
     }
   }
@@ -67,11 +89,10 @@
 
   .sub_menu {
     position: absolute;
-    display: none;
-    top: 0;
+    top: 47px;
     left: 100%;
     width: auto;
-    min-width: 240px;
+    min-width: 580px;
     background-color: white;
     box-shadow: 0 6px 15px rgba(0, 0, 0, .2)
   }
@@ -81,7 +102,23 @@
   }
 
   .sub_menu_item {
+    width: 50%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 80px;
+    float: left;
     padding: 0 15px;
+    line-height: 1;
+    border-bottom: 0;
+    color: #333;
+    border: 1px solid #efefef
+  }
+
+  .sub_menu_item img {
+    float: left;
+    height: 30px;
+    margin: 10px 20px 10px 10px;
   }
 </style>
 

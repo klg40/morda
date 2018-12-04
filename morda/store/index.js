@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-<<<<<<< HEAD
-const FormData = require('form-data')
-=======
->>>>>>> f82427a... good component and top nav component
 
 const store = () => {
     return new Vuex.Store({

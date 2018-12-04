@@ -3,7 +3,7 @@
         <HeaderMain :white="true"></HeaderMain>
         <div class="good container">
             <div class="images">
-                <img :src="'http://api.posrednik-rf.com/upload/' + image" alt="">
+                <img v-for="(img, index) in good.images" :key="index" :src="'http://api.posrednik-rf.com/upload/' + good.images[index]" alt="">
             </div>
             <div class="good_information">
                 <h1>{{good.name}}</h1>

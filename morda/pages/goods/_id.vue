@@ -15,14 +15,9 @@ import HeaderMain from './../../components/main/HeaderMain.component'
 import axios from 'axios'
 
 export default {
-<<<<<<< HEAD
-    components : { Good },
-    async asyncData({ store, params }) {
-=======
     components : { Good, HeaderMain },
     async asyncData({ store, params }) {
         await store.dispatch('setCategories');
->>>>>>> f82427a... good component and top nav component
         await store.dispatch('setGoods', params.id);
     },
     computed : {
@@ -34,12 +29,8 @@ export default {
             var result;
             var catgrs = {...this.$store.state.categories};
             for (let item in catgrs ) {
-                console.log('34234');
-                console.log(catgrs[item].url + ' - ' + this.$route.params.id);
                 if (catgrs[item].url == this.$route.params.id) { result = catgrs[item] }
             };
-            console.log('34234234');
-            console.dir(result);
             return result;
         }
     },

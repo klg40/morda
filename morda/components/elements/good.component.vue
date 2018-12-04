@@ -2,7 +2,6 @@
     <div class="good" :class="{ 'seller_visible_info' : hoverSellerBlock }" @mouseleave="hoverSellerBlock = false">
         <div class="image" 
              :style="{ backgroundImage : `url(http://api.posrednik-rf.com/upload/${image})`}">
-             <div class="category"></div>
         </div>
         <div class="information">
             <div class="title">{{info.name}}</div>
@@ -57,7 +56,7 @@
                 return this.sellerInfo.schedule.replace(';',';<br>')
             },
             image : function() {
-                return this.info.images.split('|')[0]
+                return this.info.images[0]
             }
         },
         data : function() {
